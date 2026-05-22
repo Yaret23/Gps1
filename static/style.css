@@ -1,0 +1,233 @@
+body{
+  margin:0;
+  min-height:100vh;
+  background:#0c0617;
+  color:#e6ddff;
+  font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.app-shell{
+  max-width:1180px;
+}
+
+.header{
+  padding:24px 24px 18px;
+  border-radius:24px;
+  background:rgba(35,12,59,0.95);
+  border:1px solid rgba(124,77,255,0.22);
+  box-shadow:0 18px 40px rgba(0,0,0,0.35);
+}
+
+.header h1{
+  margin:0 0 8px;
+  font-size:2.4rem;
+  letter-spacing:0.02em;
+}
+
+.subtitle{
+  margin:0;
+  color:#c8bfff;
+  opacity:0.9;
+}
+
+.panel{
+  background:rgba(26,9,44,0.95);
+  border:1px solid rgba(124,77,255,0.22);
+  border-radius:22px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.35);
+}
+
+.section-title{
+  margin-bottom:16px;
+  color:#f1e7ff;
+  font-weight:700;
+}
+
+.list-group-item{
+  background:rgba(24,10,54,0.9);
+  color:#f3ebff;
+  border:none;
+  border-radius:12px;
+  margin-bottom:8px;
+}
+
+.form-control,
+.form-select{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(124,77,255,0.34);
+  color:#ffffff;
+  min-height:52px;
+}
+
+.panel{
+  overflow: visible;
+}
+
+.form-select{
+  width:100%;
+  position: relative;
+  z-index: 10000;
+  appearance: menulist-button;
+}
+
+.row .form-select{
+  width:100%;
+}
+
+.form-select option,
+.form-select optgroup{
+  color:#000000 !important;
+  background:#ffffff !important;
+}
+
+.route-select{
+  max-height:220px;
+  overflow-y:auto;
+}
+
+.route-select{
+  max-height:220px;
+  overflow-y:auto;
+  appearance: auto !important;
+  -webkit-appearance: listbox !important;
+  z-index: 10000;
+  background: rgba(255,255,255,0.95) !important;
+  color: #000 !important;
+}
+
+.form-label.text-light{
+  color:#f3ebff !important;
+}
+
+.form-control::placeholder,
+.form-select option[disabled],
+.form-select option:first-child{
+  color:rgba(0,0,0,0.6);
+}
+
+.form-control:focus,
+.form-select:focus{
+  border-color:#b58cff;
+  box-shadow:0 0 0 0.25rem rgba(181,140,255,0.18);
+}
+
+.input-grid{
+  display:grid;
+  gap:10px;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-accent,
+.btn-outline-light{
+  border-radius:14px;
+  font-weight:600;
+  text-transform:uppercase;
+}
+
+.btn-primary{
+  background:#8c5cff;
+  border-color:#8c5cff;
+  color:#fff;
+}
+
+.btn-secondary{
+  background:#6f4ee5;
+  border-color:#6f4ee5;
+  color:#fff;
+}
+
+.btn-accent{
+  background:#c48dff;
+  border-color:#c48dff;
+  color:#130629;
+}
+
+.btn-outline-light{
+  background:transparent;
+  border-color:rgba(255,255,255,0.22);
+  color:#efe7ff;
+}
+
+.btn-outline-light:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-accent:hover{
+  opacity:0.92;
+}
+
+.result-box{
+  min-height:100px;
+  background:rgba(16,6,42,0.95);
+  border:1px solid rgba(124,77,255,0.18);
+  border-radius:18px;
+  color:#f3ebff;
+}
+
+.route-connections .list-group-item{
+  background:rgba(20,9,52,0.95);
+  color:#f8f2ff;
+  border:none;
+  margin-bottom:6px;
+  padding:10px 14px;
+  font-size:0.95rem;
+}
+
+.route-point-item{
+  cursor:pointer;
+  transition:transform 0.15s ease, background 0.15s ease;
+}
+
+.route-point-item:hover{
+  transform:scale(1.01);
+  background:rgba(124,77,255,0.16);
+}
+
+.route-list{
+  min-height:120px;
+  max-height:220px;
+  overflow:auto;
+  border-radius:10px;
+  border:1px solid rgba(124,77,255,0.2);
+  background: rgba(255,255,255,0.06);
+  padding:6px;
+}
+
+.route-list .item{
+  padding:10px 12px;
+  margin-bottom:6px;
+  border-radius:8px;
+  background: rgba(24,10,54,0.6);
+  color: #f7eefc;
+  cursor: pointer;
+}
+
+.route-list .item.selected{
+  background: rgba(124,77,255,0.22);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(124,77,255,0.12);
+}
+
+.connections-panel .section-title.small{
+  margin-bottom:12px;
+  font-size:0.95rem;
+  color:#d7c4ff;
+}
+
+.map-box{
+  min-height:420px;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid rgba(124,77,255,0.28);
+}
+
+.leaflet-container{
+  background:#12061c;
+}
+
+@media (max-width: 767px) {
+  .app-shell{
+    padding:16px;
+  }
+}
+
