@@ -3,72 +3,89 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Front Carreteras - Web</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <title>Gestor de Carreteras</title>
   <link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
-  <div class="app-shell container py-4">
-    <header class="header mb-4">
-      <h1>Gestor de Carreteras</h1>
-      <p class="subtitle"> </p>
-    </header>
-
-    <div class="row gx-4 gy-4">
-      <aside class="col-lg-4">
-        <section class="panel p-3">
-          <h5 class="section-title">Lugares</h5>
-          <ul id="places" class="list-group mb-3"></ul>
-          <h5 class="section-title">Conexiones</h5>
-          <ul id="connections" class="list-group mb-4"></ul>
-
-          <h6 class="section-title">Agregar lugar</h6>
-          <div class="input-grid mb-3">
-            <input id="name" class="form-control" placeholder="Nombre">
-            <input id="lat" class="form-control" placeholder="Latitud">
-            <input id="lon" class="form-control" placeholder="Longitud">
-          </div>
-          <button id="addPlace" class="btn btn-primary w-100 mb-3">Agregar lugar</button>
-
-          <h6 class="section-title">Agregar conexión</h6>
-          <div class="input-grid mb-3">
-            <select id="from" class="form-select"></select>
-            <select id="to" class="form-select"></select>
-            <input id="cost" class="form-control" placeholder="Costo (km)">
-          </div>
-          <button id="addEdge" class="btn btn-secondary w-100 mb-3">Agregar conexión</button>
-          <button id="refresh" class="btn btn-outline-light w-100">Refrescar datos</button>
-        </section>
-      </aside>
-
-      <main class="col-lg-8">
-        <section class="panel p-3 mb-4">
-          <h5 class="section-title">Buscar ruta</h5>
-          <div class="row g-3 mb-3 align-items-end">
-            <div class="col-12 col-sm-5">
-              <label class="form-label text-light" for="start">Inicio</label>
-              <select id="start" class="form-select"></select>
-            </div>
-            <div class="col-12 col-sm-5">
-              <label class="form-label text-light" for="goal">Destino</label>
-              <select id="goal" class="form-select"></select>
-            </div>
-            <div class="col-12 col-sm-2 d-grid">
-              <button id="routeBtn" class="btn btn-accent">Calcular</button>
-            </div>
-          </div>
-          <div id="result" class="result-box p-3">Selecciona un punto de inicio y destino para ver la ruta.</div>
-        </section>
-
-        <section class="panel p-0">
-          <div id="map" class="map-box"></div>
-        </section>
-      </main>
+  <nav class="navbar">
+    <div class="nav-content">
+      <h1 class="logo">🛣️ Carreteras</h1>
+      <button id="refresh" class="btn-refresh">↻ Actualizar</button>
     </div>
+  </nav>
+
+  <div class="container">
+    <div class="grid-main">
+      <!-- Búsqueda de rutas -->
+      <section class="card card-search">
+        <h2>Buscar Ruta</h2>
+        <div class="search-form">
+          <div class="form-group">
+            <label>Desde:</label>
+            <select id="start" class="select"></select>
+          </div>
+          <div class="form-group">
+            <label>Hasta:</label>
+            <select id="goal" class="select"></select>
+          </div>
+          <button id="routeBtn" class="btn btn-primary">Calcular Ruta</button>
+        </div>
+        <div id="result" class="result-box">Selecciona puntos de inicio y destino</div>
+      </section>
+
+      <!-- Agregar lugar -->
+      <section class="card card-add">
+        <h2>+ Nuevo Lugar</h2>
+        <div class="form-group">
+          <input id="name" type="text" placeholder="Nombre del lugar" class="input">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <input id="lat" type="number" placeholder="Latitud" step="any" class="input">
+          </div>
+          <div class="form-group">
+            <input id="lon" type="number" placeholder="Longitud" step="any" class="input">
+          </div>
+        </div>
+        <button id="addPlace" class="btn btn-secondary w-full">Agregar Lugar</button>
+      </section>
+
+      <!-- Agregar conexión -->
+      <section class="card card-add">
+        <h2>+ Nueva Conexión</h2>
+        <div class="form-group">
+          <label>Desde:</label>
+          <select id="from" class="select"></select>
+        </div>
+        <div class="form-group">
+          <label>Hasta:</label>
+          <select id="to" class="select"></select>
+        </div>
+        <div class="form-group">
+          <input id="cost" type="number" placeholder="Distancia (km)" step="any" class="input">
+        </div>
+        <button id="addEdge" class="btn btn-secondary w-full">Agregar Conexión</button>
+      </section>
+    </div>
+
+    <!-- Tabla de datos -->
+    <section class="card card-full">
+      <h2>Lugares</h2>
+      <div class="table-wrapper">
+        <table class="table" id="placesTable">
+          <thead>
+            <tr>
+              <th>Lugar</th>
+              <th>Ubicación</th>
+              <th>Conexiones</th>
+            </tr>
+          </thead>
+          <tbody id="placesBody"></tbody>
+        </table>
+      </div>
+    </section>
   </div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="/static/app.js"></script>
 </body>
 </html>
